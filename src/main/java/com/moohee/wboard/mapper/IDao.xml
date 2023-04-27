@@ -7,6 +7,9 @@
 	<insert id="joinMemberDao">
 		INSERT INTO wmember(mid, mpw, mname, memail) VALUES (#{param1}, #{param2}, #{param3}, #{param4})
 	</insert>
-
+	
+	<select id="checkIdDao" resultType="int">
+		SELECT count(*) FROM wmember WHERE mid=#{param1}
+	</select>
 
 </mapper>	
