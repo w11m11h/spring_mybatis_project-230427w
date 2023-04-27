@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 가입 성공</title>
+<title>회원 로그인 성공</title>
 </head>
 <body>
 	<%
@@ -29,6 +29,11 @@
 	%>
 
 	${memberId }님 로그인 하셨습니다.<br>
-	게시판에 열심히 글을 써주세요!!
+	게시판에 열심히 글을 써주세요!!<br>
+	<a href="">게시판 바로가기</a><br><br>
+	<a href="logout">로그아웃</a>
+	
+	
+	
 </body>
 </html>

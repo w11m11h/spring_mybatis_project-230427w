@@ -85,4 +85,12 @@ public class BoardController {
 		return "loginOk";
 	}
 	
+	@RequestMapping(value = "/logout")
+	public String logout(HttpSession session) {
+		
+		session.invalidate(); //葛电 技记 昏力
+		
+		return "login";
+	}
+	
 }
