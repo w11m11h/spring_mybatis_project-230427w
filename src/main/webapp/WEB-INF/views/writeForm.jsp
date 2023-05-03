@@ -21,7 +21,7 @@
 	
 	<h2>자유게시판 글쓰기</h2>
 	<hr>
-	<form action="wt">
+	<form action="write">
 		<input type="hidden" value="${memberDto.mid }" name="mid">
 		<input type="hidden" value="${memberDto.mname }" name="mname">
 		아이디 : ${memberDto.mid }<br><br>
