@@ -4,6 +4,8 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.moohee.wboard.dao.IDao">
+
+<!-- Member 관련 -->
 	<insert id="joinMemberDao">
 		INSERT INTO wmember(mid, mpw, mname, memail) VALUES (#{param1}, #{param2}, #{param3}, #{param4})
 	</insert>
@@ -15,4 +17,13 @@
 	<select id="checkIdPwDao" resultType="int">
 		SELECT count(*) FROM wmember WHERE mid=#{param1} AND mpw=#{param2}
 	</select>
+	
+<!-- Board 관련 -->
+	<select id="getMemberInfo" resultType="com.moohee.wboard.dto.WMemberDto">
+		SELECT * FROM wmember WHERE mid=#{param1}
+	</select>
+	
+	<insert id="writeDao">
+		INSERT INTO wboard(wnum, wid, wname, wtitle, wcontent, whit) VALUES (myboard_seq.nextval , #{param1}, #{param2}, #{param3}, #{param4}, 0)
+	</insert>
 </mapper>	

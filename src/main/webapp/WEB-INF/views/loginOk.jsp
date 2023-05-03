@@ -25,6 +25,14 @@
 			history.go(-1);
 		</script>
 	<%
+		} else if(checkIdPw.equals("0")) {
+	%>
+		<script type="text/javascript">
+			alert('입력하신 비밀번호가 틀립니다. 다시 확인 후 입력해주세요!');
+			history.go(-1);
+		</script>
+	
+	<%		
 		}
 	%>
 
