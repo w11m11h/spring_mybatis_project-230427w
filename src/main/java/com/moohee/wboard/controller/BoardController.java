@@ -113,16 +113,16 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/write")
-	public String wirte(HttpServletRequest request) {
+	public String write(HttpServletRequest request) {
 		
 		String wid = request.getParameter("mid");
-		String wpw = request.getParameter("mpw");
-		String wname = request.getParameter("wname");
+		String wname = request.getParameter("mname");
+		String wtitle = request.getParameter("wtitle");
 		String wcontent = request.getParameter("wcontent");
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
-		dao.writeDao(wid, wname, wname, wcontent);
+		dao.writeDao(wid, wname, wtitle, wcontent);
 		
 		return "redirect:list";
 	}
