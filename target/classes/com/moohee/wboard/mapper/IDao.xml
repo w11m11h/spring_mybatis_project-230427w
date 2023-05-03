@@ -26,4 +26,13 @@
 	<insert id="writeDao">
 		INSERT INTO wboard(wnum, wid, wname, wtitle, wcontent, whit) VALUES (myboard_seq.nextval , #{param1}, #{param2}, #{param3}, #{param4}, 0)
 	</insert>
+	
+	<select id="listDao" resultType="com.moohee.wboard.dto.WBoardDto">
+		SELECT * FROM wboard ORDER BY wnum DESC
+	</select>
+	
+	<!-- 총 게시글 수 -->
+	<select id="totalBoardDao" resultType="int"> <!-- 총 게시글 수 -->
+		SELECT COUNT(*) FROM wboard
+	</select>
 </mapper>	

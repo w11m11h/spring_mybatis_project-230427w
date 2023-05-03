@@ -1,5 +1,7 @@
 package com.moohee.wboard.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.moohee.wboard.dao.IDao;
+import com.moohee.wboard.dto.WBoardDto;
 import com.moohee.wboard.dto.WMemberDto;
 
 @Controller
@@ -125,6 +128,21 @@ public class BoardController {
 		dao.writeDao(wid, wname, wtitle, wcontent);
 		
 		return "redirect:list";
+	}
+	
+	@RequestMapping(value = "/list")
+	public String list(Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		ArrayList<WBoardDto> dtos = dao.listDao();
+		
+		model.addAttribute("list", dtos);
+		
+		int total = dao.totalBoardDao(); //총 게시글 수 
+		model.addAttribute("total", total); //총 게시글 수 보내기
+		
+		return "list";
 	}
 	
 }

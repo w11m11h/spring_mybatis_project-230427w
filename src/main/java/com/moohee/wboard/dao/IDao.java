@@ -1,5 +1,8 @@
 package com.moohee.wboard.dao;
 
+import java.util.ArrayList;
+
+import com.moohee.wboard.dto.WBoardDto;
 import com.moohee.wboard.dto.WMemberDto;
 
 public interface IDao {
@@ -12,4 +15,6 @@ public interface IDao {
 	//게시판 관련
 	public WMemberDto getMemberInfo(String mid); //아이디로 검색하여 회원정보 가져오기
 	public void writeDao(String mid, String mname, String wtitle, String wcontent); //게시판 글쓰기
+	public ArrayList<WBoardDto> listDao(); //글 목록 모두 가져오기
+	public int totalBoardDao(); //총 게시글 수 가져오기
 }
