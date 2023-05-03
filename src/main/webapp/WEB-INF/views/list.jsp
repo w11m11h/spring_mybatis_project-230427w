@@ -26,7 +26,9 @@
 			<td>${dto.wnum }</td>
 			<td>${dto.wid }</td>
 			<td>${dto.wname }</td>
-			<td>${dto.wtitle }</td>
+			<td>
+			<a href="content_view?wnum=${dto.wnum }">${dto.wtitle }</a>
+			</td>
 			<td>${dto.whit }</td>
 			<td>${dto.wdate }</td>
 		</tr>

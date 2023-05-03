@@ -145,4 +145,38 @@ public class BoardController {
 		return "list";
 	}
 	
+	@RequestMapping(value = "/content_view")
+	public String content_view(Model model, HttpServletRequest request, HttpSession session) {
+		
+		String wnum = request.getParameter("wnum");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		WBoardDto dto = dao.contentViewDao(wnum);
+		
+		String sessionId = (String) session.getAttribute("sessionId");
+		
+		if(sessionId == null) { //로그인하지 않은경우
+			model.addAttribute("delCheck", "0");
+		} else if(sessionId.equals(dto.getWid())) { //로그인한 아이디의 글쓴아이디가 일치
+			model.addAttribute("delCheck", "1");
+		} else { //로그인한 아이디와 글쓴아이디가 일치하지 않은 경우
+			model.addAttribute("delCheck", "0");
+		}
+		
+		model.addAttribute("content", dto);
+		
+		return "contentView";
+	}
+	
+	@RequestMapping(value = "/delete")
+	public String delete(HttpServletRequest request, HttpSession session, Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		dao.deleteDao(request.getParameter("wnum"));			
+		
+		return "redirect:list";
+	}
+	
 }

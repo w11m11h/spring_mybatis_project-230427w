@@ -32,7 +32,15 @@
 	</select>
 	
 	<!-- 총 게시글 수 -->
-	<select id="totalBoardDao" resultType="int"> <!-- 총 게시글 수 -->
+	<select id="totalBoardDao" resultType="int"> 
 		SELECT COUNT(*) FROM wboard
 	</select>
+	
+	<select id="contentViewDao" resultType="com.moohee.wboard.dto.WBoardDto">
+		SELECT * FROM wboard WHERE wnum=#{param1}
+	</select>
+	
+	<delete id="deleteDao">
+		DELETE FROM wboard WHERE wnum=#{param1}
+	</delete>
 </mapper>	
