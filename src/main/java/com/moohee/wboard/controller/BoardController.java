@@ -152,6 +152,8 @@ public class BoardController {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
+		dao.uphitDao(wnum); //조회수 증가 함수(whit = whit+1)
+		
 		WBoardDto dto = dao.contentViewDao(wnum);
 		
 		String sessionId = (String) session.getAttribute("sessionId");

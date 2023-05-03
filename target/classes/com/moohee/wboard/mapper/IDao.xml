@@ -43,4 +43,8 @@
 	<delete id="deleteDao">
 		DELETE FROM wboard WHERE wnum=#{param1}
 	</delete>
+	
+	<update id="uphitDao">
+		UPDATE wboard SET whit=whit+1 WHERE wnum=#{param1}
+	</update>
 </mapper>	

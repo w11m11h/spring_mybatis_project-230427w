@@ -19,4 +19,5 @@ public interface IDao {
 	public int totalBoardDao(); //총 게시글 수 가져오기
 	public WBoardDto contentViewDao(String wnum); //특정 번호의 글 1개 가져오기
 	public void deleteDao(String wnum); //게시글 삭제
+	public void uphitDao(String wnum); // 조회수
 }
